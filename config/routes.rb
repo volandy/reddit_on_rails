@@ -1,10 +1,24 @@
 RedditOnRails::Application.routes.draw do
 
+  root :to => "pages#index"
+
   devise_for :users
+
+  get "links/show"
+
+
+  get "links/new"
+
+  get "links/create"
+
+  
+  resources :links
 
   resources :pages
 
-  root :to => "pages#index"
+  
+
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
