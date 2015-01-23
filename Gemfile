@@ -40,3 +40,7 @@ gem 'jquery-rails'
 gem 'devise' 
 
 gem 'strong_parameters'
+
+gem 'debugger', group: [:development, :test]
+
+gem 'thin'

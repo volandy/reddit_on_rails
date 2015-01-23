@@ -1,10 +1,10 @@
 RedditOnRails::Application.routes.draw do
 
-  root :to => "pages#index"
+  
 
   devise_for :users
 
-  get "links/show"
+  get "links/show" 
 
 
   get "links/new"
@@ -12,11 +12,7 @@ RedditOnRails::Application.routes.draw do
   get "links/create"
 
   
-  resources :links
-
-  resources :pages
-
-  
+  resources :links, :pages
 
   
 
@@ -76,4 +72,6 @@ RedditOnRails::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+
+  root :to => "pages#index"
 end

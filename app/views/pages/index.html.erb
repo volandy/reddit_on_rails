@@ -1,3 +1,12 @@
 <h2>This is The Homepage</h2>
 
 <%= link_to "Add a link", new_link_path %>
+
+
+<ol>
+  <% @links.each do |link| %>
+   <li><a href="<%= link.url %>"> <%= link.title %></a></li>
+  <% end %>
+</ol>
+
+
