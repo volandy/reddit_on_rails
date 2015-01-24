@@ -44,3 +44,6 @@ gem 'strong_parameters'
 gem 'debugger', group: [:development, :test]
 
 gem 'thin'
+
+gem 'will_paginate', '~> 3.0.6'
+
