@@ -1,14 +1,16 @@
-<a href="/">The Homepage</a> 
-<h1>Show links</h1>
+<a href="/">Show Me The Homepage!</a> 
+
+<h1>Here is your link!</h1>
+
 
 <p>
   <strong>Link name:</strong>
-	<%= @link.title %>
+	<%= @link.try(:title) %>
 </p>
 
 <p>
   <strong>URL:</strong>
-	<%= @link.url %>
+	<%= @link.try(:url) %>
 </p>
 
 

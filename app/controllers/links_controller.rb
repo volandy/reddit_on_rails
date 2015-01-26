@@ -1,7 +1,8 @@
 class LinksController < ApplicationController
 
   def show
-  	@links = Link.all
+  	@link = Link.find(params[:id])
+
   end
 
   def new
@@ -11,9 +12,9 @@ class LinksController < ApplicationController
   def create
   	@link = Link.new(links_params)
   	if @link.save
-      render('show')
+      render :show
     else
-      render('new')
+      render :new
     end
   end
 
