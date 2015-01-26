@@ -2,6 +2,8 @@ RedditOnRails::Application.routes.draw do
 
   
 
+  get "comments/create"
+
   devise_for :users
 
   get "links/show" 
@@ -12,7 +14,7 @@ RedditOnRails::Application.routes.draw do
   get "links/create"
 
   
-  resources :links, :pages
+  resources :links, :pages, :comments
 
   
 

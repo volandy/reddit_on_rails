@@ -2,7 +2,7 @@ class LinksController < ApplicationController
 
   def show
   	@link = Link.find(params[:id])
-
+    @comment = Comment.new
   end
 
   def new
@@ -12,7 +12,7 @@ class LinksController < ApplicationController
   def create
   	@link = Link.new(links_params)
   	if @link.save
-      render :show
+      render :create
     else
       render :new
     end
