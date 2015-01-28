@@ -5,9 +5,10 @@
 
 <ol>
   <% @links.each do |link| %>
-   <li><a href="<%= link.url %>"> <%= link.title %></a></li> 
+   <li> <%= link_to " + ", votes_path(:vote => { :link_id => link.id, :up => true }), :method => :post %> <%= link.votes.where(:up => true).count - link.votes.where(:up => false).count %> <%= link_to "  -  ", votes_path(:vote => {:link_id => link.id, :up => false }), :method => :post %>  <a href="<%= link.url %>"> <%= link.title %></a>  </li> 
    <ul>
    <li><%= link_to "show me the link!", link %></li>
+ 
    </ul>
    
   <% end %>
