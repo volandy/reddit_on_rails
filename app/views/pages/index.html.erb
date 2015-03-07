@@ -1,28 +1,42 @@
-
-
-<%= link_to "Add a link", new_link_path %>
-
-
-<ol>
-  <% @links.each do |link| %>
-   <li> 
-   
-<% if current_user && current_user.votes.where(:link_id => link.id, :up => true).present? %>
-    *
-  <% else %>
-    <%= link_to "+", votes_path(:vote => {:link_id => link.id, :up => true}), :method => :post %>
-  <% end %>
+<html>
+  <body style="font-size: 16px;">
 
 
 
-    <%= link.votes.where(:up => true).count - link.votes.where(:up => false).count %> <%= link_to "  -  ", votes_path(:vote => {:link_id => link.id, :up => false }), :method => :post %>  <a href="<%= link.url %>"> <%= link.title %></a>  </li> 
-   <ul>
-   <li><%= link_to "show me the link!", link %></li>
- 
-   </ul>
-   
-  <% end %>
-</ol>
+  <ol style="
+    padding: 17px;">
+    <% @links.each do |link| %>
+     <li> 
+     
+  <% if current_user && current_user.votes.where(:link_id => link.id, :up => true).present? %>
+      *
+    <% else %>
 
- 
-<%= will_paginate @links %>
+     <%= link_to(
+        content_tag(
+          :i,
+          nil, 
+          class: 'fa fa-plus-circle'
+        ), votes_path(:vote => {:link_id => link.id, :up => true}), :method => :post ) %>
+    <% end %>
+
+     <%= link.votes.where(:up => true).count - link.votes.where(:up => false).count %> <%= link_to(
+        content_tag(
+          :i,
+          nil, 
+          class: 'fa fa-minus-circle'
+        ), votes_path(:vote => {:link_id => link.id, :up => false }), :method => :post ) %>
+
+
+    
+
+     <a href="<%= link.url %>"> <%= link.title %></a> * <%= link_to "comments", link %> </li> 
+     
+    <% end %>
+  </ol>
+
+  <%= will_paginate @links, renderer: BootstrapPagination::Rails %> 
+
+
+  </body>
+</html>

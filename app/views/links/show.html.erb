@@ -1,6 +1,5 @@
-<a href="/">Show Me The Homepage!</a> 
 
-<h1>Here is your link!</h1>
+<h4>Here is your link!</h4>
 
 
 <p>
@@ -39,8 +38,8 @@
 <h2>Comments:<h2>
 <div>
   <% @link.comments.each do |comment| %>
-    <p><%= comment.message %></p>
-
+    <h4 style="font-family: Verdana; font-size: 14px" ><%= comment.message %> <h4 style="font-family: cursive; font-size: 11px" >User number <%= comment.user_id %> wrote at <%= comment.created_at %></h4> </h4>
+    
   <% end %>
 </div>
 

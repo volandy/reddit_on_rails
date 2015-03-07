@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <!-- Le styles -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  </head>
+
 <h1>Comments#create</h1>
 
 <%= form_for(@comment) do |f| %>
@@ -18,6 +25,7 @@
     <%= f.text_area :message, :placeholder => "Add a comment" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit, class:"btn btn-large btn-primary" %>
   </div>
 <% end %>
+</html>
